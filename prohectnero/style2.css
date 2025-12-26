@@ -1,0 +1,181 @@
+* {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(17, 17, 17);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header.hero {
+            text-align: center;
+            padding: 50px 20px 20px 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        header.hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #ffffff; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header.hero p {
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        .wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            background-color: rgba(28, 28, 28, 0.95);
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 800px;
+            flex-wrap: wrap;
+        }
+
+        .navbar img {
+            height: 40px;
+            width: auto;
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: block;
+            cursor: pointer;
+            font-size: 30px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .nav-toggle-label:hover {
+            color: #00aaff;
+        }
+
+        .nav-links {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            margin-top: 15px;
+            text-align: center;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #00aaff;
+        }
+
+        #nav-toggle:checked ~ .nav-links {
+            display: flex;
+        }
+
+        
+
+        .user-btn-container {
+            position: fixed;
+            top: 25px;
+            right: 20px;
+            z-index: 1002;
+        }
+
+        .btn-user {
+            font-size: 30px;
+            color: #fff;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            padding: 5px;
+            transition: 0.3s;
+        }
+        
+        .btn-user:hover { 
+            color: #00aaff; 
+            transform:
+             scale(1.1);
+             }
+
+        .content-container {
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 1;
+            padding-bottom: 60px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #252525, #1f1f1f);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-top: 3px solid transparent;
+            transition: 0.3s;
+        }
+        
+        .card:hover {
+             border-top: 3px solid #00aaff; 
+             transform: translateY(-5px); 
+            }
+        h2 { 
+            color: #00aaff;
+             text-transform: uppercase;
+              margin-bottom: 20px;
+             }
+        p { 
+            line-height: 1.6; 
+            color: #e0e0e0;
+             margin-bottom: 15px; 
+            }
+
+        footer {
+            width: 100%;
+            background-color: #111;
+            padding: 40px 20px;
+            margin-top: auto;
+            border-top: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+ 
+        .copyright { color: #555; font-size: 12px; }

@@ -1,0 +1,202 @@
+/* --- Global Reset --- */
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(17, 17, 17);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- Navbar Styles --- */
+        .wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            margin-bottom: 30px;
+        }
+
+        .navbar {
+            background-color: rgba(28, 28, 28, 0.95);
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 800px;
+            flex-wrap: wrap;
+        }
+
+        .navbar img { height: 40px; width: auto; }
+
+        #nav-toggle { display: none; }
+        .nav-toggle-label { display: block; cursor: pointer; font-size: 30px; color: white; transition: 0.3s; }
+        .nav-toggle-label:hover { color: #00aaff; }
+
+        .nav-links {
+            display: none; width: 100%; flex-direction: column; padding-top: 20px;
+            border-top: 1px solid #444; margin-top: 15px; text-align: center; gap: 15px;
+        }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 18px; font-weight: 500; transition: 0.3s; padding: 5px 0; }
+        .nav-links a:hover { color: #00aaff; }
+        
+        /* Navbar Logic */
+        #nav-toggle:checked ~ .nav-links { display: flex; }
+        #nav-toggle:checked ~ .nav-toggle-label i { transform: rotate(90deg); color: #00aaff; }
+
+        /* --- User Icon --- */
+        .user-btn-container { position: fixed; top: 25px; right: 20px; z-index: 1002; }
+        .btn-user { font-size: 30px; color: #fff; background: rgba(0,0,0,0.5); border-radius: 50%; padding: 5px; transition: 0.3s; display: block; }
+        .btn-user:hover { color: #00aaff; transform: scale(1.1); }
+
+        /* --- Main Content --- */
+        .content-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1; /* דוחף את הפוטר למטה */
+            padding-bottom: 50px;
+        }
+
+        h1.title {
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- Scanner Card (העיצוב החדש) --- */
+        .scanner-card {
+            width: 320px;
+            height: 500px;
+            background: #000;
+            border-radius: 20px;
+            border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 170, 255, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- Video Element --- */
+        .video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            /* שיניתי את הצבע כאן לתכלת */
+            animation: hideVideo 0.5s ease-out 5s forwards; 
+        }
+
+        @keyframes hideVideo {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* --- QR Stage (Scanning Animation) --- */
+        .qr-stage {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            /* שיניתי לתכלת */
+            background: rgba(0, 0, 0, 0.8); 
+            animation: showQR 0.5s ease-in 5s forwards;
+        }
+
+        @keyframes showQR {
+            to { opacity: 1; pointer-events: auto; }
+        }
+
+        /* Scan Box */
+        .qr-box {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            position: relative;
+            border: 2px solid rgba(0, 170, 255, 0.8); /* מסגרת תכלת */
+            box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+            overflow: hidden;
+            background: rgba(0, 20, 40, 0.5);
+        }
+
+        /* Laser Line */
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: #00aaff; /* לייזר תכלת */
+            box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+            top: 0;
+            animation: scanMove 2s linear infinite;
+        }
+
+        @keyframes scanMove {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        .msg {
+            margin-top: 20px;
+            color: #00aaff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+
+        /* --- Cancel Button --- */
+        .cancel-btn {
+            margin-top: 30px;
+            text-decoration: none;
+            color: #ccc;
+            border: 1px solid #444;
+            padding: 10px 40px;
+            border-radius: 30px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cancel-btn:hover {
+            border-color: #ff4444;
+            color: #ff4444;
+            background: rgba(255, 68, 68, 0.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: auto;
+            color: #555;
+            font-size: 12px;
+            padding: 20px;
+        }

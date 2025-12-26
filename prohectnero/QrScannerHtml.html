@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QR Demo</title>
+  <link rel="stylesheet" href="QrScannerCss.css">
+  <link rel="stylesheet" href="https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css">
+</head>
+<body>
+  <div class="user-btn-container">
+        <a href="indexpr.html" class="btn-user"><i class='bx bxs-user-circle'></i></a>
+    </div>
+
+    <div class="wrap">
+        <nav class="navbar">
+            <img src="logo.png" alt="logo"> 
+            
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class='bx bx-menu'></i>
+            </label>
+
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="mdevice.html">My Devices</a>
+                <a href="QrScannerHtml.html" class="current">Scanner</a> <a href="conta.html">Contact</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content-container">
+        <h1 class="title">Add New Device</h1>
+
+        <div class="scanner-card">
+            
+            <video id="demoVideo" class="video" autoplay muted playsinline loop>
+                <source src="qr-video.mp4" type="video/mp4">
+            </video>
+
+            <div class="qr-stage">
+                <div class="qr-box">
+                    <div class="scan-line"></div>
+                </div>
+                <div class="msg">Scanning...</div>
+            </div>
+
+        </div>
+
+        <a href="mdevice.html" class="cancel-btn">
+            <i class='bx bx-arrow-back'></i> Cancel
+        </a>
+    </div>
+
+    <footer>
+        © 2025 NeroCar System
+    </footer>
+</body>
+</html>
